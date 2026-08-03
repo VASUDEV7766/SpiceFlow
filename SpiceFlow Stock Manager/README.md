@@ -35,3 +35,24 @@ honestly the most satisfying part to build.
 - CSS and JavaScript in wwwroot
 
 ## Project structure
+
+Controllers/    — Account, Client, Manager, Home
+Entities/       — Order, Spice, User models  
+Services/       — Repository pattern and DB context
+Views/          — Completely separate views per role
+Migrations/     — Entity Framework database migrations
+
+## How to run it
+
+1. Clone the repo
+2. Open `SpiceFlow Stock Manager.sln` in Visual Studio
+3. Hit Run — database comes pre-seeded and ready to go
+
+## What I learned
+
+Building role-based routing properly taught me more 
+about application architecture than any tutorial ever 
+could. When two completely different users need to 
+share one codebase without ever stepping on each other, 
+you have to think carefully about every layer — 
+controllers, views, authentication, and data access.
