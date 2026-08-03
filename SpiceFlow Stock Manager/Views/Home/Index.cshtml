@@ -1,0 +1,33 @@
+﻿@*
+    Author: Dominic Becz
+    Purpose: Home page view for the Spice Flow Manager application.
+*@
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Welcome";
+}
+
+@section Navbar {
+    <nav class="home-nav">
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="Account" asp-action="SignIn">Sign In</a>
+        <a asp-controller="Account" asp-action="Register">Create Account</a>
+    </nav>
+}
+
+<div class="home-dashboard">
+    <h1>Welcome to Spice Flow Manager</h1>
+    <br>
+    <p>Manage your spices inventory and customer orders in one place.</p>
+    <br>
+
+    <p>
+        <a class="btn btn-primary"
+           asp-controller="Account"
+           asp-action="SignIn">
+            Sign In
+        </a>
+    </p>
+</div>
+

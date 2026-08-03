@@ -1,0 +1,44 @@
+﻿@* Author: Vasudev Plavinchuvadu Vinod
+   Purpose: Detailed view of a single spice. *@
+@model SpiceFlow_Stock_Manager.Entities.Spice
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Spice Details";
+}
+
+@section Navbar {
+    @Html.Partial("_ManagerNavbar")
+}
+
+<h2>Spice Details</h2>
+
+<dl class="row">
+    <dt class="col-sm-3">Name</dt>
+    <dd class="col-sm-9">@Model.SpiceName</dd>
+
+    <dt class="col-sm-3">Price</dt>
+    <dd class="col-sm-9">@Model.Price</dd>
+
+    <dt class="col-sm-3">Stock</dt>
+    <dd class="col-sm-9">@Model.Stock</dd>
+
+    <dt class="col-sm-3">Origin</dt>
+    <dd class="col-sm-9">@Model.Origin</dd>
+
+    <dt class="col-sm-3">Scoville Rating</dt>
+    <dd class="col-sm-9">@Model.ScovilleRating</dd>
+
+    <dt class="col-sm-3">Expiry Date</dt>
+    <dd class="col-sm-9">@Model.ExpiryDate.ToShortDateString()</dd>
+
+    <dt class="col-sm-3">Image</dt>
+    <dd class="col-sm-9">
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <img src="@Model.ImageUrl" alt="@Model.SpiceName" style="max-width:150px;" />
+        }
+    </dd>
+</dl>
+
+<a asp-action="Spices" class="btn btn-secondary">Back to Spices</a>

@@ -1,0 +1,69 @@
+﻿@*
+    Author: Dominic Becz
+    Purpose: View for users to view and manage their shopping cart.
+*@
+
+
+@model List<SpiceFlow_Stock_Manager.Models.CartItemViewModel>
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Cart";
+    var user = ViewBag.User as SpiceFlow_Stock_Manager.Entities.User;
+    var total = ViewBag.Total as decimal?;
+}
+
+@section Navbar {
+    @Html.Partial("_ClientNavbar")
+}
+
+<h2>Your Cart</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">@TempData["Message"]</div>
+}
+
+@if (Model == null || !Model.Any())
+{
+    <p>Your cart is empty.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Spice</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.SpiceName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price.ToString("C")</td>
+                    <td>@item.Subtotal.ToString("C")</td>
+                    <td>
+                        <form asp-action="RemoveFromCart" method="post">
+                            <input type="hidden" name="userId" value="@user.UserId" />
+                            <input type="hidden" name="spiceId" value="@item.SpiceId" />
+                            <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p><strong>Total: @total?.ToString("C")</strong></p>
+
+    <form asp-action="Checkout" method="post">
+        <input type="hidden" name="userId" value="@user.UserId" />
+        <button type="submit" class="btn btn-success">Checkout Cart</button>
+    </form>
+}

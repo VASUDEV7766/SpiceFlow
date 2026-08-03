@@ -1,0 +1,49 @@
+﻿@*
+    Author: Dominic Becz
+    Purpose: View for users to view their order history.
+*@
+
+@model List<SpiceFlow_Stock_Manager.Entities.Order>
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Order History";
+    var user = ViewBag.User as SpiceFlow_Stock_Manager.Entities.User;
+}
+
+@section Navbar {
+    @Html.Partial("_ClientNavbar")
+}
+
+<h2>Your Orders</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <p>You have no order history.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order #</th>
+                <th>Spice</th>
+                <th>Order Date</th>
+                <th>ETA</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.OrderId</td>
+                    <td>@order.Spice.SpiceName</td>
+                    <td>@order.OrderDate.ToShortDateString()</td>
+                    <td>@order.ETA.ToShortDateString()</td>
+                    <td>@order.Spice.Price.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

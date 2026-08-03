@@ -1,0 +1,38 @@
+﻿@* Author: Vasudev Plavinchuvadu Vinod
+   Purpose: Manager view for listing all orders. *@
+@model IEnumerable<SpiceFlow_Stock_Manager.Entities.Order>
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "All Orders";
+}
+
+@section Navbar {
+    @Html.Partial("_ManagerNavbar")
+}
+
+<h2>All Orders</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order Id</th>
+            <th>User</th>
+            <th>Spice</th>
+            <th>Order Date</th>
+            <th>ETA</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderId</td>
+                <td>@order.User?.UserName</td>
+                <td>@order.Spice?.SpiceName</td>
+                <td>@order.OrderDate</td>
+                <td>@order.ETA</td>
+            </tr>
+        }
+    </tbody>
+</table>

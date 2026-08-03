@@ -1,0 +1,24 @@
+﻿@* Author: Vasudev Plavinchuvadu Vinod
+   Purpose: Confirmation page for deleting a spice. *@
+@model SpiceFlow_Stock_Manager.Entities.Spice
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Delete Spice";
+}
+
+@section Navbar {
+    @Html.Partial("_ManagerNavbar")
+}
+
+<h2>Delete Spice</h2>
+
+<p>Are you sure you want to delete this spice?</p>
+
+<h4>@Model.SpiceName</h4>
+
+<form asp-action="DeleteSpiceConfirmed" method="post">
+    <input type="hidden" asp-for="SpiceId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Spices" class="btn btn-secondary">Cancel</a>
+</form>

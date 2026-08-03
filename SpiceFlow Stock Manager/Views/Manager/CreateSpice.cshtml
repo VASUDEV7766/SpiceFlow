@@ -1,0 +1,50 @@
+﻿@* Author: Vasudev Plavinchuvadu Vinod
+   Purpose: Form to create a new spice. *@
+@model SpiceFlow_Stock_Manager.Entities.Spice
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Create Spice";
+}
+
+@section Navbar {
+    @Html.Partial("_ManagerNavbar")
+}
+
+<div class="form-container">
+    <h2>Create Spice</h2>
+
+    <form asp-action="CreateSpice" method="post">
+        <div class="mb-3">
+            <label asp-for="SpiceName" class="form-label"></label>
+            <input asp-for="SpiceName" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Price" class="form-label"></label>
+            <input asp-for="Price" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Stock" class="form-label"></label>
+            <input asp-for="Stock" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Origin" class="form-label"></label>
+            <input asp-for="Origin" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="ScovilleRating" class="form-label"></label>
+            <input asp-for="ScovilleRating" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="ExpiryDate" class="form-label"></label>
+            <input asp-for="ExpiryDate" type="date" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="ImageUrl" class="form-label"></label>
+            <input asp-for="ImageUrl" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Spices" class="btn btn-secondary">Back to Spices</a>
+    </form>
+</div>

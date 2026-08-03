@@ -1,0 +1,17 @@
+﻿@*
+    Author: Dominic Becz
+    Purpose: Partial view for the client navigation bar.
+*@
+
+@{
+    var user = ViewBag.User as SpiceFlow_Stock_Manager.Entities.User;
+    var userId = user?.UserId ?? 0;
+}
+
+<nav class="home-nav">
+    <a asp-controller="Client" asp-action="AvailableSpices" asp-route-userId="@userId">Available Spices</a>
+    <a asp-controller="Client" asp-action="Cart" asp-route-userId="@userId">Cart</a>
+    <a asp-controller="Client" asp-action="OrderHistory" asp-route-userId="@userId">Order History</a>
+    <a asp-controller="Client" asp-action="AccountSettings" asp-route-userId="@userId">Account Settings</a>
+    <a asp-controller="Account" asp-action="SignOut">Sign Out</a>
+</nav>

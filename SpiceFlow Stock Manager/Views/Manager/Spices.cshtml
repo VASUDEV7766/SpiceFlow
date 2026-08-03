@@ -1,0 +1,48 @@
+﻿@* Author: Vasudev Plavinchuvadu Vinod
+   Purpose: Manager view for listing and managing spices. *@
+@model IEnumerable<SpiceFlow_Stock_Manager.Entities.Spice>
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Manage Spices";
+}
+
+@section Navbar {
+    @Html.Partial("_ManagerNavbar")
+}
+
+<h2>Spices</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Spice</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Origin</th>
+            <th>Scoville</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var spice in Model)
+        {
+            <tr>
+                <td>@spice.SpiceName</td>
+                <td>@spice.Price</td>
+                <td>@spice.Stock</td>
+                <td>@spice.Origin</td>
+                <td>@spice.ScovilleRating</td>
+                <td>
+                    <a asp-action="SpiceDetails" asp-route-id="@spice.SpiceId">Details</a> |
+                    <a asp-action="EditSpice" asp-route-id="@spice.SpiceId">Edit</a> |
+                    <a asp-action="DeleteSpice" asp-route-id="@spice.SpiceId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p class="text-center">
+    <a class="btn btn-success" asp-action="CreateSpice">Create New Spice</a>
+</p>

@@ -1,0 +1,70 @@
+﻿@*
+    Author: Dominic Becz
+    Purpose: View for clients to see available spices and add them to their cart.
+*@
+
+@model List<SpiceFlow_Stock_Manager.Entities.Spice>
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Available Spices";
+    var user = ViewBag.User as SpiceFlow_Stock_Manager.Entities.User;
+}
+
+@section Navbar {
+    @Html.Partial("_ClientNavbar")
+}
+
+<h2>Available Spices</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">@TempData["Message"]</div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var spice in Model)
+        {
+            <tr>
+                <td>@spice.SpiceName</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(spice.ImageUrl))
+                    {
+                        <img src="@spice.ImageUrl" alt="@spice.SpiceName" class="spice-thumb" loading="lazy" width="150" height="100" />
+                    }
+                </td>
+                <td>@spice.Price.ToString("C")</td>
+                <td>
+                    @if (spice.Stock > 0)
+                    {
+                        <span>@spice.Stock in stock</span>
+                    }
+                    else
+                    {
+                        <span class="text-danger">Out of Stock</span>
+                    }
+                </td>
+                <td>
+                    @if (spice.Stock > 0)
+                    {
+                        <form asp-action="AddToCart" method="post">
+                            <input type="hidden" name="userId" value="@user.UserId" />
+                            <input type="hidden" name="spiceId" value="@spice.SpiceId" />
+                            <button type="submit" class="btn btn-sm btn-primary">Add to Cart</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,161 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #d4670f;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background-color: #faf8f5; /* Warm off-white like cream */
+  color: #3d2817; /* Deep brown for text */
+}
+
+button {
+    margin: 20px;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* Centered form container */
+.form-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f4e4d7; /* Light cinnamon/beige */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.client-nav {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f4e4d7; /* Light cinnamon/beige */
+    border-bottom: 1px solid #c9a882; /* Golden brown */
+}
+.client-nav a { color: #856404; text-decoration: none; }
+.client-nav a:hover { text-decoration: underline; }
+
+.navbar.bg-white {
+    background-color: #d8e5d0 !important;
+}
+
+.inline-form {
+    margin-left: auto;
+    display: inline;
+}
+
+.manager-nav {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f4d03f; /* Turmeric/saffron yellow */
+    border-bottom: 1px solid #d4a617; /* Golden saffron */
+}
+.manager-nav a { color: #856404; text-decoration: none; }
+.manager-nav a:hover { text-decoration: underline; }
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.home-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    background: transparent; /* Make home nav transparent to show green */
+}
+
+.home-nav a {
+    color: #c1440e; /* Paprika red-orange */
+    text-decoration: none;
+    padding-right: 1.5rem;
+    border-right: 1px solid #c9a882;
+}
+
+.home-nav a:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+
+.home-nav a:hover {
+    text-decoration: underline;
+    color: #d4670f; /* Brighter paprika on hover */
+}
+
+.home-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 60vh;
+    padding: 2rem;
+}
+
+.home-dashboard h1 {
+    max-width: 600px;
+    color: #8b4513; /* Saddle brown for headings */
+}
+
+.home-dashboard p {
+    max-width: 600px;
+    color: #5d3a1a; /* Rich brown for body text */
+}
+
+/* Primary button styling for spice theme */
+.btn-primary {
+    background-color: #c1440e; /* Paprika */
+    border-color: #c1440e;
+}
+
+.btn-primary:hover {
+    background-color: #a33a0c; /* Darker paprika */
+    border-color: #a33a0c;
+}
+
+/* Secondary button styling */
+.btn-secondary {
+    background-color: #8b4513; /* Saddle brown */
+    border-color: #8b4513;
+}
+
+.btn-secondary:hover {
+    background-color: #6e360f;
+    border-color: #6e360f;
+}
+
+table td img,
+table th img {
+    border: 6px solid #f4e4d7;
+    border-radius: 4px;
+}
+
+table {
+    text-align: center;
+}
+
+table th,
+table td {
+    text-align: center;
+    vertical-align: middle;
+}
