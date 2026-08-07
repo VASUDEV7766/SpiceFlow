@@ -1,9 +1,8 @@
 # SpiceFlow
 
 Most inventory apps are built for one type of user.
-SpiceFlow is built for two — and they never see the 
+SpiceFlow is built for two and they never see the 
 same thing twice.
-
 A customer and a manager both log in through the same 
 form. But the moment they're in, their worlds split 
 completely. Different dashboards, different capabilities, 
